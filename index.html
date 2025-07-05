@@ -2,211 +2,207 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>تصويت أفضل لاعبي كرة القدم</title>
+  <title>تصويت لاعبي كرة القدم</title>
   <style>
+    /* إعداد عام */
     body {
       background-color: #000;
-      font-family: 'Tahoma', sans-serif;
-      color: #fff;
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    .neon-text {
-      font-size: 2em;
-      font-weight: bold;
       color: #0ff;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 1s ease-in-out;
-      margin-top: 40px;
-    }
-
-    .neon-text.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .neon-box {
-      display: none;
-      background-color: #111;
-      border: 2px solid #0ff;
-      border-radius: 15px;
-      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff;
+      font-family: 'Tahoma', sans-serif;
       padding: 30px;
-      margin-top: 30px;
-      text-align: right;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 2s 1s forwards;
+    }
+
+    form {
+      background-color: rgba(17, 17, 17, 0.95);
+      border: 2px solid #0ff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 40px auto;
+      opacity: 0;
+      animation: fadeInUp 2s 2s forwards;
     }
 
     label {
       display: block;
-      margin: 15px 0 5px;
+      margin-top: 20px;
       font-weight: bold;
+      font-size: 16px;
+      text-shadow: 0 0 5px #0ff;
     }
 
     select, input[type="text"] {
       width: 100%;
-      padding: 8px;
-      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
       border: none;
-      margin-bottom: 15px;
-      background-color: #222;
+      background: #111;
       color: #0ff;
-      box-shadow: 0 0 5px #0ff;
+      font-size: 16px;
+      box-shadow: 0 0 10px #0ff inset;
+      transition: transform 0.2s ease;
+    }
+
+    select:focus, input[type="text"]:focus {
+      outline: none;
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #0ff;
     }
 
     button {
-      background-color: #0ff;
+      margin-top: 30px;
+      background: linear-gradient(45deg, #0ff, #00cccc);
       color: #000;
-      padding: 12px 25px;
-      font-size: 16px;
-      font-weight: bold;
+      padding: 15px 30px;
       border: none;
-      border-radius: 8px;
-      margin-top: 20px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 18px;
       cursor: pointer;
-      transition: background 0.3s;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
     }
 
     button:hover {
-      background-color: #00cccc;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00ffff, 0 0 40px #00ffff;
+    }
+
+    /* تأثيرات دخول العناصر */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- الرسائل الترحيبية -->
-  <div id="welcome1" class="neon-text">مرحبًا بكم يا أبطال الكرة ⚽🔥</div>
-  <div id="welcome2" class="neon-text">نريد منكم التصويت على أفضل اللاعبين في كل مركز 👇</div>
+  <h1>⚽ مرحبًا بكم يا أبطال الكرة</h1>
+  <p>🎯 صوّت لأفضل اللاعبين في كل مركز</p>
 
-  <!-- نموذج التصويت -->
-  <div id="formContainer" class="neon-box">
-    <form action="https://formsubmit.co/adbelhak1515@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://thankyou.page/">
+  <form action="https://formsubmit.co/adbelhak1515@gmail.com" method="POST">
+    <!-- إعدادات FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://thankyou.page/">
 
-      <label>🥇 أفضل مهاجم:</label>
-      <select name="أفضل مهاجم" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🥇 أفضل مهاجم:</label>
+    <select name="أفضل مهاجم" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🛡️ أفضل مدافع:</label>
-      <select name="أفضل مدافع" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🛡️ أفضل مدافع:</label>
+    <select name="أفضل مدافع" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🧠 أفضل لاعب وسط:</label>
-      <select name="أفضل لاعب وسط" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🎯 أفضل هداف:</label>
+    <select name="أفضل هداف" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🎯 أفضل هداف:</label>
-      <select name="أفضل هداف" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🎁 أفضل ممرر:</label>
+    <select name="أفضل ممرر" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🎁 أفضل ممرر:</label>
-      <select name="أفضل ممرر" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🧤 أفضل حارس:</label>
+    <select name="أفضل حارس" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🧤 أفضل حارس:</label>
-      <select name="أفضل حارس" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🦁 أفضل قائد:</label>
+    <select name="أفضل قائد" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🦁 أفضل قائد:</label>
-      <select name="أفضل قائد" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>🧨 مفاجأة الموسم:</label>
+    <select name="مفاجأة الموسم" required>
+      <option value="">-- اختر لاعبًا --</option>
+      <option>الحاج دحو مروض الأفاعي</option>
+      <option>عبد الحق أمين</option>
+      <option>عبد الله</option>
+      <option>عبد الإله</option>
+      <option>يوسف الكفات</option>
+      <option>سفيان</option>
+      <option>إلياس</option>
+    </select>
 
-      <label>🧨 مفاجأة الموسم:</label>
-      <select name="مفاجأة الموسم" required>
-        <option value="">-- اختر لاعبًا --</option>
-        <option>الحاج دحو مروض الأفاعي</option>
-        <option>عبد الحق أمين</option>
-        <option>عبد الله</option>
-        <option>عبد الإله</option>
-        <option>يوسف الكفات</option>
-        <option>سفيان</option>
-        <option>إلياس</option>
-      </select>
+    <label>✍️ لاعب إضافي (اختياري):</label>
+    <input type="text" name="لاعب آخر" placeholder="اكتب اسم اللاعب">
 
-      <label>✍️ لاعب آخر (اختياري):</label>
-      <input type="text" name="لاعب آخر" placeholder="اكتب اسم اللاعب هنا">
-
-      <button type="submit">إرسال التصويت ✅</button>
-    </form>
-  </div>
-
-  <!-- سكربت التأثيرات -->
-  <script>
-    const welcome1 = document.getElementById("welcome1");
-    const welcome2 = document.getElementById("welcome2");
-    const formContainer = document.getElementById("formContainer");
-
-    setTimeout(() => { welcome1.classList.add("show"); }, 500);
-    setTimeout(() => { welcome1.classList.remove("show"); }, 3000);
-    setTimeout(() => {
-      welcome1.style.display = "none";
-      welcome2.classList.add("show");
-    }, 3500);
-    setTimeout(() => { formContainer.style.display = "block"; }, 5000);
-  </script>
+    <button type="submit">✅ إرسال التصويت</button>
+  </form>
 
 </body>
 </html>
